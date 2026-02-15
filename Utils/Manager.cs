@@ -11,6 +11,5 @@ namespace HotelBookingSystem.Utils
     {
         public static Frame AuthFrame;
         public static Frame MainFrame;
-        public static Frame SecondFrame;
     }
 }

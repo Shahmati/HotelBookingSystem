@@ -78,7 +78,7 @@ namespace HotelBookingSystem.Pages
                 DataBaseEntities.GetContext().SaveChanges();
                 MessageBox.Show("Информация сохранена!", "Информация",
                     MessageBoxButton.OK, MessageBoxImage.Information);
-                Manager.SecondFrame.Navigate(new PageRooms());
+                Manager.MainFrame.Navigate(new PageRooms());
             }
             catch (Exception ex)
             {

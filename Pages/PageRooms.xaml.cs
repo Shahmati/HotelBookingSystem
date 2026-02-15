@@ -84,7 +84,9 @@ namespace HotelBookingSystem.Pages
             var room = border.DataContext as Rooms;
             if (room == null) return;
 
-            Manager.SecondFrame.Navigate(new Page1(room));
+            Manager.MainFrame.Navigate(new PageRoomDesc(room));
+
+
         }
     }
 }

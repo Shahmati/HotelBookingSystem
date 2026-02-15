@@ -36,7 +36,7 @@ namespace HotelBookingSystem.Pages
 
         private void btnBron_Click(object sender, RoutedEventArgs e)
         {
-            Manager.SecondFrame.Navigate(new PageBooking(null));
+            Manager.MainFrame.Navigate(new PageBooking(null));
         }
     }
 }

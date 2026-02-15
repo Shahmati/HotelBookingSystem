@@ -1,0 +1,31 @@
+﻿<Page x:Class="HotelBookingSystem.Pages.PageAuth"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HotelBookingSystem.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="PageAuth">
+
+    <Grid>
+        <Border Style="{StaticResource BrdAuth}">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Авторизация" Style="{StaticResource TxblTitle}"/>
+                <WrapPanel Margin="5">
+                    <TextBlock Text="Логин" Style="{StaticResource TxblLogPass}"/>
+                    <TextBox x:Name="TxBoxLogin" Text="Введите логин" Style="{StaticResource TxBoxLogin}" GotFocus="TxBoxLogin_GotFocus" LostFocus="TxBoxLogin_LostFocus"/>
+                </WrapPanel>
+
+                <WrapPanel Margin="5">
+                    <TextBlock Text="Пароль" Style="{StaticResource TxblLogPass}"/>
+                    <Grid>
+                        <TextBlock x:Name="TxBlPassword" Text="Введите пароль" Style="{StaticResource TxBlPassword}"/>
+                        <PasswordBox x:Name="PsBoxPassword" PasswordChanged="PsBoxPassword_PasswordChanged" Style="{StaticResource PsBoxPassword}"/>
+                    </Grid>
+                </WrapPanel>
+                <Button x:Name="BtnSingIn" Click="BtnSingIn_Click" Content="Войти" Style="{StaticResource BtnSignIn}"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

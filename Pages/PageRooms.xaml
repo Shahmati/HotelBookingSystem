@@ -1,0 +1,87 @@
+﻿<Page x:Class="HotelBookingSystem.Pages.PageRooms"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HotelBookingSystem.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="PageRooms">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Background="Wheat" x:Name="GrdHeader">
+
+            <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Label Content="Номера" Style="{StaticResource LblHeader}"/>
+            </WrapPanel>
+
+            <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+
+                <Button x:Name="BtnAdd" Style="{StaticResource BtnPages}" Click="BtnAdd_Click">
+                    <!--<Image Source="/Resources/ImgAdd.png"/>-->
+                </Button>
+
+                <Button x:Name="BtnDelete" Style="{StaticResource BtnPages}" Click="BtnDelete_Click" Cursor="Hand">
+                    <!--<Image Source="/Resources/ImgDelete.png"/>-->
+                </Button>
+
+            </WrapPanel>
+        </Grid>
+        <Grid Grid.Row="1" Background="Wheat" Opacity="0.7">
+            <StackPanel Orientation="Horizontal" Margin="10" Grid.Row="1">
+                <WrapPanel>
+                    <TextBlock Text="Тип номера: " FontSize="22" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="cmbType" Width="300" Margin="10,0,10,0" Text="Сотрудик" FontSize="22"/>
+
+                </WrapPanel>
+                <WrapPanel>
+                    <TextBlock Text="Этаж: " FontSize="22" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="cmbFloor" Width="150" Text="Палата" Margin="10,0,0,0" FontSize="22"/>
+
+                </WrapPanel>
+            </StackPanel>
+        </Grid>
+
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
+            <ListView x:Name="lvRooms" SelectionMode="Single" HorizontalAlignment="Center" BorderThickness="0" 
+                      Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border CornerRadius="10" Background="White"
+Margin="10" Padding="15"
+Width="260" Height="200"
+BorderBrush="#D0D0D0" BorderThickness="1"
+Cursor="Hand"
+MouseLeftButtonDown="RoomCard_Click">
+
+                            <StackPanel>
+                                <TextBlock Text="{Binding RoomNumber}" FontSize="18" FontWeight="Bold" TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding RoomTypes.TypeName, StringFormat='Тип: {0}'}" Margin="0,6,0,0"/>
+                                <TextBlock Text="{Binding Floor, StringFormat='Этаж: {0}'}" Margin="0,6,0,0"/>
+                                <TextBlock Text="{Binding RoomTypes.BasePrice, StringFormat='Цена: {0}'}" Margin="0,6,0,0"/>
+                                <TextBlock Text="{Binding RoomTypes.MaxOccupancy, StringFormat='Максимальная вместимость: {0}'}" Margin="0,6,0,0"/>
+                                <TextBlock Text="{Binding IsActive}" Margin="0,6,0,0"/>
+                            </StackPanel>
+
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+
+        </ScrollViewer>
+    </Grid>
+</Page>

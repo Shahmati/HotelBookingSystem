@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="09d69269f8b745b681de249de79498a9" Name="Diagram1">
+        <EntityTypeShape EntityType="DataBase.Bookings" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBase.BookingServices" Width="1.5" PointX="7.5" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBase.Roles" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBase.Rooms" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBase.RoomTypes" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBase.RoomTypeServices" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBase.Services" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBase.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataBase.Users" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <AssociationConnector Association="DataBase.FK__Bookings__RoomId__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="DataBase.FK__Bookings__UserId__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="DataBase.FK__BookingSe__Booki__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="DataBase.FK__BookingSe__Servi__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="DataBase.FK__Users__RoleId__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="DataBase.FK__Rooms__RoomTypeI__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="DataBase.FK__RoomTypeS__RoomT__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="DataBase.FK__RoomTypeS__Servi__440B1D61" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

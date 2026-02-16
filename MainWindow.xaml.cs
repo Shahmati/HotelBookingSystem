@@ -22,11 +22,13 @@ namespace HotelBookingSystem
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private Users _currentUser;
+        public MainWindow(Users users)
         {
             InitializeComponent();
+            _currentUser = users;
             Manager.MainFrame = MainFrame;
-            MainFrame.Navigate(new PageRooms());
+            MainFrame.Navigate(new PageRooms(_currentUser));
         }
     }
 }

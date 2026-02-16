@@ -55,12 +55,44 @@ namespace HotelBookingSystem.Pages
 
         private void BtnSingIn_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
+            if (string.IsNullOrWhiteSpace(TxBoxLogin.Text) || TxBoxLogin.Text == "Введите логин")
+            {
+                MessageBox.Show("Введите логин!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            // Проверка на пустой пароль
+            if (string.IsNullOrWhiteSpace(PsBoxPassword.Password))
+            {
+                MessageBox.Show("Введите пароль!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            // Обращение к БД
+            var users = DataBaseEntities.GetContext().Users
+                .Include("Roles")
+                .FirstOrDefault(u => u.Login == TxBoxLogin.Text && u.PasswordHash == PsBoxPassword.Password);
+            //var user = DataBaseEntities.GetContext().Users
+            //    .FirstOrDefault(u => u.Login == TxBoxLogin.Text && u.Password == PsBoxPassword.Password);
+
+            if (users == null)
+            {
+                MessageBox.Show("Неверный логин или пароль!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            MessageBox.Show($"Добро пожаловать, {users.FullName}!",
+                "Успешный вход", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            // Открытие главного окна
+            MainWindow mainWindow = new MainWindow(users);
             mainWindow.Show();
+
+            // Закрытие окна авторизации (если Page в отдельном окне)
             Application.Current.Windows
-                    .OfType<AuthWindow>()
-                    .FirstOrDefault()?
-                    .Close();
+                .OfType<Window>()
+                .FirstOrDefault(w => w is AuthWindow)
+                ?.Close();
         }
 
     }

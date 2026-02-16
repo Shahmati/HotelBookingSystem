@@ -22,17 +22,18 @@ namespace HotelBookingSystem.Pages
     public partial class PageRooms : Page
     {
         private List<Rooms> allRooms;
-        public PageRooms()
+        private Users _currentUser;
+        public PageRooms(Users users)
         {
             InitializeComponent();
-            lvRooms.ItemsSource = DataBaseEntities.GetContext().Rooms.ToList();
+            _currentUser = users;
             LoadRooms();
+            
         }
         void LoadRooms()
         {
-            //lvRooms.ItemsSource = DataBaseEntities.GetContext().Rooms.ToList();
             allRooms = DataBaseEntities.GetContext().Rooms.ToList();
-            //lvRooms.ItemsSource = allRooms;
+            lvRooms.ItemsSource = allRooms;
             LoadComboBoxData();
         }
         void LoadComboBoxData()

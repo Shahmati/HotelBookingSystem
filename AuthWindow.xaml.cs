@@ -24,7 +24,6 @@ namespace HotelBookingSystem
         public AuthWindow()
         {
             InitializeComponent();
-            InitializeComponent();
             Manager.AuthFrame = AuthFrame;
             AuthFrame.Navigate(new PageAuth());
         }

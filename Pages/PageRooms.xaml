@@ -23,12 +23,10 @@
 
             <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Center">
 
-                <Button x:Name="BtnAdd" Style="{StaticResource BtnPages}" Click="BtnAdd_Click">
-                    <!--<Image Source="/Resources/ImgAdd.png"/>-->
+                <Button x:Name="BtnAdd" Style="{StaticResource BtnPages}" Cursor="Hand" Background="Green" Width="150" Content="Добавить" Click="BtnAdd_Click">
                 </Button>
 
-                <Button x:Name="BtnDelete" Style="{StaticResource BtnPages}" Click="BtnDelete_Click" Cursor="Hand">
-                    <!--<Image Source="/Resources/ImgDelete.png"/>-->
+                <Button x:Name="BtnDelete" Margin="15,0,0,0" Style="{StaticResource BtnPages}" Click="BtnDelete_Click" Cursor="Hand" Background="Red" Width="150" Content="Удалить">
                 </Button>
 
             </WrapPanel>

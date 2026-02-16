@@ -124,11 +124,15 @@
 
         <!--Стиль для кнопок действий (Удаление, Редактирование, Добавление)-->
         <Style TargetType="Button" x:Key="BtnPages">
-            <Setter Property="Width" Value="50"/>
+            <Setter Property="Width" Value="150"/>
             <Setter Property="Height" Value="50"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalContentAlignment" Value="Right"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
@@ -143,7 +147,7 @@
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#FFC5D3E4"/>
-                    <Setter Property="Foreground" Value="#53699E"/>
+                    <Setter Property="Foreground" Value="Black"/>
                 </Trigger>
 
                 <Trigger Property="IsPressed" Value="True">
@@ -198,5 +202,7 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Width" Value="600"/>
         </Style>
+        <!---->
+        
     </Application.Resources>
 </Application>

@@ -91,6 +91,9 @@
     <Compile Include="Pages\PageBooking.xaml.cs">
       <DependentUpon>PageBooking.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PageEditRooms.xaml.cs">
+      <DependentUpon>PageEditRooms.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PageRoomDesc.xaml.cs">
       <DependentUpon>PageRoomDesc.xaml</DependentUpon>
     </Compile>
@@ -143,6 +146,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\PageBooking.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageEditRooms.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

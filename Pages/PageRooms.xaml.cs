@@ -70,11 +70,52 @@ namespace HotelBookingSystem.Pages
         }
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
+            Manager.MainFrame.Navigate(new PageEditRooms(null));
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-            
+            var selected = lvRooms.SelectedItem as Rooms;
+
+            if (selected == null)
+            {
+                MessageBox.Show("Выберите комнату для удаления!", "Внимание",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            MessageBoxResult result = MessageBox.Show(
+                $"Вы действительно хотите удалить комнату:\n{selected.RoomNumber}?\n",
+                "Подтверждение удаления",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Warning);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    var context = DataBaseEntities.GetContext();
+
+                    var roomToDelete = context.Rooms
+                        .FirstOrDefault(d => d.RoomId == selected.RoomId);
+
+                    if (roomToDelete != null)
+                    {
+                        context.Rooms.Remove(roomToDelete);
+                        context.SaveChanges();
+
+                        MessageBox.Show("Комната успешно удалена!", "Успех",
+                            MessageBoxButton.OK, MessageBoxImage.Information);
+
+                        LoadRooms();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при удалении комнаты:\n{ex.Message}",
+                        "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void RoomCard_Click(object sender, RoutedEventArgs e)

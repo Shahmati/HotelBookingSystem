@@ -1,0 +1,44 @@
+﻿<Page x:Class="HotelBookingSystem.Pages.PageEditRooms"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HotelBookingSystem.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="PageEditRooms">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Background="Wheat" x:Name="GrdHeader">
+
+            <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Label Content="График дежурств" Style="{StaticResource LblHeader}"/>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Button x:Name="BtnBack" Style="{StaticResource BtnPages}" Background="Red" Content="Назад" Click="BtnBack_Click">
+                </Button>
+                <Button x:Name="BtnSave" Style="{StaticResource BtnPages}" Background="Green" Content="Сохранить" Margin="15,0,0,0" Click="BtnSave_Click">
+                </Button>
+            </WrapPanel>
+        </Grid>
+        <StackPanel Grid.Row="1" Width="1000" HorizontalAlignment="Center">
+            <WrapPanel>
+                <TextBlock Text="Номер" Style="{StaticResource TblEditAdd}" HorizontalAlignment="Left" Width="250"/>
+                <TextBox x:Name="tbNumber" Style="{StaticResource TbxEditAdd}" Text="{Binding RoomNumber}"/>
+            </WrapPanel>
+            <WrapPanel>
+                <TextBlock Text="Тип" Style="{StaticResource TblEditAdd}" HorizontalAlignment="Left" Width="250"/>
+                <ComboBox x:Name="cmbType" Style="{StaticResource CmbEditAdd}" SelectedItem="{Binding RoomTypes}" DisplayMemberPath="TypeName" Text="{Binding RoomTypes.TypeName}"/>
+            </WrapPanel>
+            <WrapPanel>
+                <TextBlock Text="Этаж" Style="{StaticResource TblEditAdd}" HorizontalAlignment="Left" Width="250"/>
+                <TextBox x:Name="tbFloor" Style="{StaticResource TbxEditAdd}" Text="{Binding Floor}"/>
+            </WrapPanel>
+        </StackPanel>
+    </Grid>
+</Page>

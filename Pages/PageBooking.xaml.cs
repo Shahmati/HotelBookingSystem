@@ -86,5 +86,10 @@ namespace HotelBookingSystem.Pages
                     MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.GoBack();
+        }
     }
 }

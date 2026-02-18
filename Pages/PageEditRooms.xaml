@@ -17,7 +17,7 @@
         <Grid Background="Wheat" x:Name="GrdHeader">
 
             <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-                <Label Content="График дежурств" Style="{StaticResource LblHeader}"/>
+                <Label Content="Номера" Style="{StaticResource LblHeader}"/>
             </WrapPanel>
             <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Center">
                 <Button x:Name="BtnBack" Style="{StaticResource BtnPages}" Background="Red" Content="Назад" Click="BtnBack_Click">

@@ -22,6 +22,7 @@ namespace HotelBookingSystem.Pages
     public partial class PageRooms : Page
     {
         private List<Rooms> allRooms;
+        private List<Rooms> currentFilteredRooms;
         private Users _currentUser;
         public PageRooms(Users users)
         {
@@ -33,6 +34,7 @@ namespace HotelBookingSystem.Pages
         void LoadRooms()
         {
             allRooms = DataBaseEntities.GetContext().Rooms.ToList();
+            currentFilteredRooms = new List<Rooms>(allRooms);
             lvRooms.ItemsSource = allRooms;
             LoadComboBoxData();
         }
@@ -66,7 +68,16 @@ namespace HotelBookingSystem.Pages
             if (cmbFloor.SelectedItem is int f && f != 0)
                 rooms = rooms.Where(r => r.Floor == f).ToList();
 
-            lvRooms.ItemsSource = rooms;
+            if (chkActual.IsChecked == true)
+                rooms = rooms.Where(r => r.IsActive == true).ToList();
+
+            currentFilteredRooms = rooms;
+            lvRooms.ItemsSource = currentFilteredRooms;
+        }
+
+        private void chkActual_Changed(object sender, RoutedEventArgs e)
+        {
+            ApplyFilters();
         }
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {

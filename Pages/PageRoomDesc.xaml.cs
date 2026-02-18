@@ -38,5 +38,10 @@ namespace HotelBookingSystem.Pages
         {
             Manager.MainFrame.Navigate(new PageBooking(null));
         }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.GoBack();
+        }
     }
 }

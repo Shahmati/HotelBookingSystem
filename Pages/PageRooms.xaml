@@ -36,12 +36,14 @@
                 <WrapPanel>
                     <TextBlock Text="Тип номера: " FontSize="22" VerticalAlignment="Center"/>
                     <ComboBox x:Name="cmbType" Width="300" Margin="10,0,10,0" Text="Сотрудик" FontSize="22"/>
-
                 </WrapPanel>
                 <WrapPanel>
                     <TextBlock Text="Этаж: " FontSize="22" VerticalAlignment="Center"/>
                     <ComboBox x:Name="cmbFloor" Width="150" Text="Палата" Margin="10,0,0,0" FontSize="22"/>
-
+                </WrapPanel>
+                <WrapPanel>
+                    <TextBlock Text="Актуальные: " Margin="10,0,0,0" FontSize="22" VerticalAlignment="Center"/>
+                    <CheckBox IsChecked="False" x:Name="chkActual" VerticalAlignment="Center" Checked="chkActual_Changed" Unchecked="chkActual_Changed"/>
                 </WrapPanel>
             </StackPanel>
         </Grid>
@@ -71,7 +73,21 @@ MouseLeftButtonDown="RoomCard_Click">
                                 <TextBlock Text="{Binding Floor, StringFormat='Этаж: {0}'}" Margin="0,6,0,0"/>
                                 <TextBlock Text="{Binding RoomTypes.BasePrice, StringFormat='Цена: {0}'}" Margin="0,6,0,0"/>
                                 <TextBlock Text="{Binding RoomTypes.MaxOccupancy, StringFormat='Максимальная вместимость: {0}'}" Margin="0,6,0,0"/>
-                                <TextBlock Text="{Binding IsActive}" Margin="0,6,0,0"/>
+                                <TextBlock Margin="0,6,0,0">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Text" Value="Не актуален"/>
+                                            <Setter Property="Foreground" Value="Gray"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsActive}" Value="True">
+                                                    <Setter Property="Text" Value="Актуален"/>
+                                                    <Setter Property="Foreground" Value="Green"/>
+                                                    <Setter Property="FontWeight" Value="Bold"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
                             </StackPanel>
 
                         </Border>

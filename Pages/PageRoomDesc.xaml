@@ -15,6 +15,7 @@
         </Grid.RowDefinitions>
         <Grid Background="Wheat" x:Name="GrdHeader">
             <Label Content="Бронирование" Style="{StaticResource LblHeader}"/>
+            <Button x:Name="btnBack" Content="Назад" Style="{StaticResource BtnPages}" Background="Red" HorizontalAlignment="Right" Margin="10" Click="btnBack_Click"/>
         </Grid>
         <StackPanel Grid.Row="1" Width="1200" HorizontalAlignment="Center">
             <WrapPanel>
@@ -33,14 +34,37 @@
                     </WrapPanel>
                     <WrapPanel>
                         <TextBlock Text="Цена" Style="{StaticResource TblEditAdd}" HorizontalAlignment="Left" Width="250"/>
-                        <TextBox x:Name="tbPrice" Style="{StaticResource TbxEditAdd}" Text="{Binding RoomTypes.Price}" Width="250"/>
+                        <TextBox x:Name="tbPrice" Style="{StaticResource TbxEditAdd}" Text="{Binding RoomTypes.BasePrice}" Width="250"/>
                     </WrapPanel>
                     <WrapPanel>
                         <TextBlock Text="Макс. вместимость" Style="{StaticResource TblEditAdd}" HorizontalAlignment="Left" Width="250"/>
                         <TextBox x:Name="tbMaxOccupancy" Style="{StaticResource TbxEditAdd}" Text="{Binding RoomTypes.MaxOccupancy}" Width="250"/>
                     </WrapPanel>
                 </StackPanel>
-                
+                <Image Width="250" Margin="150,15,15,15">
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Setter Property="Source" Value="/Resources/standart.jpg"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding RoomTypes.RoomTypeId}" Value="1">
+                                    <Setter Property="Source" Value="/Resources/standart.jpg"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding RoomTypes.RoomTypeId}" Value="2">
+                                    <Setter Property="Source" Value="/Resources/comfort.jpg"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding RoomTypes.RoomTypeId}" Value="3">
+                                    <Setter Property="Source" Value="/Resources/luxe.jpg"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding RoomTypes.RoomTypeId}" Value="4">
+                                    <Setter Property="Source" Value="/Resources/aparts.jpg"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding RoomTypes.RoomTypeId}" Value="5">
+                                    <Setter Property="Source" Value="/Resources/family.jpg"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
             </WrapPanel>
             
             <WrapPanel>
